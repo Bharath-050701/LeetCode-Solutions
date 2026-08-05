@@ -4,12 +4,10 @@ class Solution {
         Arrays.sort(nums);
 
         for (int i = 0; i < nums.length - 2; i++) {
-            // Skip duplicate values for the first element
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
 
-            // Optimization: If the smallest element is > 0, no 3 numbers can sum to 0
             if (nums[i] > 0) {
                 break;
             }
@@ -23,7 +21,6 @@ class Solution {
                 if (sum == 0) {
                     result.add(Arrays.asList(nums[i], nums[left], nums[right]));
 
-                    // Skip duplicate values for the second and third elements
                     while (left < right && nums[left] == nums[left + 1]) {
                         left++;
                     }
